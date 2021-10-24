@@ -27,15 +27,17 @@ const changeBg = () => {
     createBg(timeDay, number);
 }
 
+//slice 72,
+const filterWord = (img) => {
+    return img.match(/(url).+/)[0];
+
+}
 
 const createBg = (timeDay, number) => {
     const img = new Image();
-    img.src = `url('https://raw.githubusercontent.com/JohanL1bert/ImageDay/main/images/${timeDay}/${number}.jpg')`;
-    console.log(img.src)
-    img.onLoad = () => {
-        body.style.backgroundImage = img.src.slice(22,);
-    }
-    img.onLoad();
+    img.src = `url('https://raw.githubusercontent.com/JohanL1bert/ImageDay/main/images/${timeDay}/${number}.jpg`;
+    const result = filterWord(img.src);
+    setTimeout = (body.style.backgroundImage = result, 10);
 }
 
 changeBg();
@@ -45,7 +47,6 @@ changeBg();
 const getSlideNext = () => {
     globalBackgroundValue++;
     const getDay = filterDay();
-    console.log(getDay)
     if (globalBackgroundValue > 20) {
         globalBackgroundValue = 1;
         createBg(getDay, globalBackgroundValue);

@@ -12,10 +12,15 @@ let language;
 document.addEventListener('DOMContentLoaded', () => {
     let getLanguage = toggleLanguage();
     language = getLanguage;
-    //getWeather(language);
     toggleSettingLanguage(language);
-    document.addEventListener('DOMContentLoaded', (getJsonData(language)));
+    getJsonData(language);
+    getWeather(language)
 })
+
+//Отрисовувем первоначальный ренден
+window.onload = () => {
+    getWeather(language);
+}
 
 quoteBtn.addEventListener('click', (event) => {
     getJsonData(language);
@@ -25,7 +30,7 @@ languageChoice.addEventListener('click', () => {
     let getLanguage = toggleLanguage();
     language = getLanguage;
     //Weather
-    //getWeather(language);
+    getWeather(language);
     //Change language
     quoteBtn.addEventListener('click', (event) => {
         getJsonData(language);
@@ -34,7 +39,7 @@ languageChoice.addEventListener('click', () => {
     toggleSettingLanguage(language);
 
     //Когда меняется триггер нужно перерендировать без кнопки
-    document.addEventListener('DOMContentLoaded', (getJsonData(language)));
+    getJsonData(language);
 });
 
 
