@@ -27,7 +27,7 @@ const changeBg = () => {
     createBg(timeDay, number);
 }
 
-//slice 72,
+//TODO: Filter for url server and url finding. Not need 
 const filterWord = (img) => {
     return img.match(/(url).+/)[0];
 
@@ -35,9 +35,10 @@ const filterWord = (img) => {
 
 const createBg = (timeDay, number) => {
     const img = new Image();
-    img.src = `url('https://raw.githubusercontent.com/JohanL1bert/ImageDay/main/images/${timeDay}/${number}.jpg`;
-    const result = filterWord(img.src);
-    setTimeout = (body.style.backgroundImage = result, 10);
+    img.src = `https://raw.githubusercontent.com/JohanL1bert/ImageDay/main/images/${timeDay}/${number}.jpg`;
+    img.onload = () => {
+        body.style.backgroundImage = `url(${img.src})`;
+    }
 }
 
 changeBg();

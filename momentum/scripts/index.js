@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
     language = getLanguage;
     toggleSettingLanguage(language);
     getJsonData(language);
-    getWeather(language)
 })
 
 //Отрисовувем первоначальный ренден
@@ -56,10 +55,3 @@ setInterval(globalTimeCallback, 1000);
 settingBtn.addEventListener('click', toggleSwitchBg);
 closeBtn.addEventListener('click', checkCloseBtn);
 
-
-//quoteGenerator
-/* quoteBtn.addEventListener('click', (event) => {
-    getJsonData(language);
-});
-document.addEventListener('DOMContentLoaded', (getJsonData(language)));
- */
