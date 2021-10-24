@@ -24,8 +24,6 @@ const getLocalStorage = () => {
 }
 
 
-
-
 const getWeather = async() => {
     const cityVal = city.value;
     console.log(cityVal)
