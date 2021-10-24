@@ -24,24 +24,29 @@ const getLocalStorage = () => {
 }
 
 
-const getWeather = async() => {
+export const getWeather = async(lang) => {
+    lang = lang;
     const cityVal = city.value;
-    console.log(cityVal)
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityVal}&lang=${lang}&appid=3dcea47eb95f064189c725e938950c79&units=metric`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${'Minsk'}&lang=${lang}&appid=3dcea47eb95f064189c725e938950c79&units=metric`;
     const response = await fetch(url);
     const data = await response.json();
-    descriptionWeather(data);
+    descriptionWeather(data, lang);
 }
 
 //setTimeout(getWeather, 1000);
 
-const descriptionWeather = (data) => {
-    console.log(data)
+const descriptionWeather = (data, lang) => {  
+    if (lang == 'en') {
+        weatherDesc.textContent = `${data.weather[0].description}`;
+        wind.textContent = `Wind speed: ${data.wind.speed} m/s`
+        humidity.textContent = `Humidity: ${data.main.humidity}%`;
+    } else {
+        weatherDesc.textContent = `${data.weather[0].description}`;
+        wind.textContent = `Скорость ветра: ${data.wind.speed} m/s`
+        humidity.textContent = `Влажность: ${data.main.humidity}%`;
+    }
     weatherIcon.classList.add(`owf-${data.weather[0].id}`)
     temp.textContent = `${Math.floor(data.main.temp)}°C`
-    weatherDesc.textContent = `${data.weather[0].description}`;
-    wind.textContent = `Wind speed: ${data.wind.speed} m/s`
-    humidity.textContent = `Humidity: ${data.main.humidity}%`;
 }
 
 

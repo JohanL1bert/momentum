@@ -3,12 +3,15 @@ import greeting from './greetings/greet.js';
 import {getJsonData, quoteBtn} from './quotes/quotes_generator.js';
 import {toggleLanguage, languageChoice} from './settings/setting.js';
 import {toggleSwitchBg, checkCloseBtn, settingBtn, closeBtn} from './settings/seting_popup.js';
+import {getWeather} from './weather_widget/weather.js';
+
 
 //Language
 let language;
 document.addEventListener('DOMContentLoaded', () => {
     let getLanguage = toggleLanguage();
     language = getLanguage;
+    //getWeather(language);
     document.addEventListener('DOMContentLoaded', (getJsonData(language)));
 })
 
@@ -19,6 +22,8 @@ quoteBtn.addEventListener('click', (event) => {
 languageChoice.addEventListener('click', () => {
     let getLanguage = toggleLanguage();
     language = getLanguage;
+    //Weather
+    //getWeather(language);
     //Change language
     quoteBtn.addEventListener('click', (event) => {
         getJsonData(language);
