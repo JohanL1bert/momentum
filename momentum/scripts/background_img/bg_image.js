@@ -33,7 +33,6 @@ changeBg();
 //Рандомный бэкграунд
 
 const getSlideNext = () => {
-    console.log(globalBackgroundValue)
     globalBackgroundValue++;
     const getDay = filterDay();
     if (globalBackgroundValue > 20) {
