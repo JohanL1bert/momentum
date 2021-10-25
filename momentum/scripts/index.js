@@ -17,9 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 //Отрисовувем первоначальный ренден
-window.onload = () => {
+/* window.onload = () => {
     getWeather(language);
-}
+} */
 
 quoteBtn.addEventListener('click', (event) => {
     getJsonData(language);
