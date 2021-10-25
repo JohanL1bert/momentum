@@ -16,10 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
     getJsonData(language);
 })
 
-//Отрисовувем первоначальный ренден
-/* window.onload = () => {
+//Render first Time
+window.onload = () => {
     getWeather(language);
-} */
+}
 
 quoteBtn.addEventListener('click', (event) => {
     getJsonData(language);
@@ -37,7 +37,7 @@ languageChoice.addEventListener('click', () => {
     //rerenederName
     toggleSettingLanguage(language);
 
-    //Когда меняется триггер нужно перерендировать без кнопки
+    //Render when trigger change
     getJsonData(language);
 });
 
