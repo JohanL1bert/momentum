@@ -18,8 +18,8 @@ const filterDay = () => {
 
 const randomApiBg = (data) => {
     let len = data.photos.photo.length - 1;
-    let result = Math.floor(Math.random() * (len - 1 + 1) + 1);
-    return data.photos.photo[result]['url_l'];
+    let random = Math.floor(Math.random() * (len - 1 + 1) + 1);
+    return data.photos.photo[random]['url_l'];
 }
 
 export const getLinkUnsplash = async() => {
