@@ -241,8 +241,8 @@
   },
   {
     "en": {
-        "quote": "Sometimes one dream must die for another to be born from the ashes",
-        "author": "David Sharif"
+      "quote": "Sometimes one dream must die for another to be born from the ashes",
+      "author": "David Sharif"
     },
     "ru": {
       "quote": "Иногда одна мечта должна умереть, чтобы из пепла родилась другая",
@@ -404,7 +404,7 @@
       "quote": "Your actions have meaning only if they hold true to your ideals… If you need someone else to fulfill your dreams it loses its value",
       "author": "Ramza"
     },
-    "ru" : {
+    "ru": {
       "quote": "Твои поступки имеют смысл лишь если направлены на достижение выбранных идеалов. Если же тебе нужен кто-то, кто будет воплощать твои мечты в жизнь за тебя, они теряют свою значимость",
       "author": "Рамза"
     }
