@@ -13,9 +13,6 @@ import { toggleSettingLanguage } from "./translater/translate.js";
 import { checkBtn, radioBtn } from "./settings/setting_checkbox.js";
 import changeBg from "./background_img/bg_image.js";
 import { getLinkUnsplash, getLinkFlicker } from "./background_img/api_bg.js";
-import { myRate } from "./rating.js";
-
-myRate();
 
 //Language
 let language;
