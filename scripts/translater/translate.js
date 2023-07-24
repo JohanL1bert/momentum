@@ -10,6 +10,6 @@ export const toggleSettingLanguage = (lang) => {
   } else {
     settingsName.textContent = 'Налаштування';
     languageName.textContent = 'Мова';
-    backgroundPopupName.textContent = 'Задній фон(по-заомвчуванню Github)';
+    backgroundPopupName.textContent = 'Задній фон(по-замовчуванню Github)';
   }
 };

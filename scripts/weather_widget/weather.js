@@ -25,7 +25,7 @@ const getLocalStorage = () => {
 export const getWeather = async (lang) => {
   lang = lang;
   const cityVal = city.value;
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${'Minsk'}&lang=${lang}&appid=3dcea47eb95f064189c725e938950c79&units=metric`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityVal}&lang=${lang}&appid=3dcea47eb95f064189c725e938950c79&units=metric`;
   const response = await fetch(url);
   const data = await response.json();
   descriptionWeather(data, lang);
