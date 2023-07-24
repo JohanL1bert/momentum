@@ -1,14 +1,14 @@
-const footerSection = document.querySelector(".footer");
+const footerSection = document.querySelector('.footer');
 
-export const quoteBtn = footerSection.querySelector("button");
-const quote = footerSection.querySelector(".quote");
-const author = footerSection.querySelector(".author");
+export const quoteBtn = footerSection.querySelector('button');
+const quote = footerSection.querySelector('.quote');
+const author = footerSection.querySelector('.author');
 
 //FIXME: Переписать под API
 export const getJsonData = async (lang) => {
   try {
     const getLang = lang;
-    const quotes = "./scripts/quotes/quote2.json";
+    const quotes = './scripts/quotes/quote2.json';
     const response = await fetch(quotes);
     const data = await response.json();
     const getLen = quoteGenerator(data);

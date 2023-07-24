@@ -1,44 +1,44 @@
-import playList from "./audio_list.js";
+import playList from './audio_list.js';
 //Player btn
-const playerControls = document.querySelector(".player-controls");
-const next = playerControls.querySelector(".play-next");
-const playPause = playerControls.querySelector(".play");
-const prev = playerControls.querySelector(".play-prev");
+const playerControls = document.querySelector('.player-controls');
+const next = playerControls.querySelector('.play-next');
+const playPause = playerControls.querySelector('.play');
+const prev = playerControls.querySelector('.play-prev');
 
-const playListSelector = document.querySelector(".play-list");
+const playListSelector = document.querySelector('.play-list');
 
 //PlayerDuration
-const playerSettings = document.querySelector(".play-time");
+const playerSettings = document.querySelector('.play-time');
 
 //Image animation
-const imageWrapper = document.querySelector(".image-animation");
+const imageWrapper = document.querySelector('.image-animation');
 const audio = new Audio();
 audio.volume = 0.2;
 
 //Play Range
-const imageBorder = document.querySelector(".image-border");
-const playRange = document.querySelector(".player-slider");
+const imageBorder = document.querySelector('.image-border');
+const playRange = document.querySelector('.player-slider');
 
-const playDuration = document.querySelector(".play-duration");
+const playDuration = document.querySelector('.play-duration');
 
 //Sound duraion
-const soundDuration = document.querySelector(".slider-sound");
+const soundDuration = document.querySelector('.slider-sound');
 
 //soundBtn
-const soundActiveBtn = document.querySelector(".sound-img");
-let volumeBtn = document.getElementById("volume");
+const soundActiveBtn = document.querySelector('.sound-img');
+let volumeBtn = document.getElementById('volume');
 
 let isPlay = false;
 let stateSound = 0;
 
 const activeStateList = () => {
   rerenderActiveList();
-  playListSelector.childNodes[stateSound].classList.add("item-active");
+  playListSelector.childNodes[stateSound].classList.add('item-active');
 };
 
 const rerenderActiveList = () => {
   playListSelector.childNodes.forEach((el) =>
-    el.classList.remove("item-active")
+    el.classList.remove('item-active')
   );
 };
 
@@ -57,8 +57,8 @@ const pauseAudio = () => {
 };
 
 const playAudioBtn = () => {
-  if (!playPause.classList.contains("pause")) {
-    playPause.classList.add("pause");
+  if (!playPause.classList.contains('pause')) {
+    playPause.classList.add('pause');
     isPlay = true;
   }
   audio.src = playList[stateSound].src;
@@ -66,7 +66,7 @@ const playAudioBtn = () => {
 };
 
 const btnPlayState = () => {
-  playPause.classList.toggle("pause");
+  playPause.classList.toggle('pause');
 };
 
 const statePlay = () => {
@@ -75,8 +75,8 @@ const statePlay = () => {
 
 const createElement = () => {
   playList.forEach((el) => {
-    const li = document.createElement("li");
-    li.classList.add("play-item");
+    const li = document.createElement('li');
+    li.classList.add('play-item');
     li.textContent = el.title;
     playListSelector.appendChild(li);
   });
@@ -92,7 +92,7 @@ const changeSrcImg = () => {
 const trackDuration = () => {
   changeSrcImg();
   //create duration
-  const trackDuration = playerSettings.querySelector(".play-duration-change");
+  const trackDuration = playerSettings.querySelector('.play-duration-change');
   trackDuration.textContent = playList[stateSound].duration;
 
   //add active class
@@ -100,7 +100,7 @@ const trackDuration = () => {
 
 trackDuration();
 
-playPause.addEventListener("click", statePlay);
+playPause.addEventListener('click', statePlay);
 
 const nextMusic = () => {
   if (stateSound == 7) {
@@ -130,8 +130,8 @@ const prevMusic = () => {
   playAudioBtn();
 };
 
-next.addEventListener("click", nextMusic);
-prev.addEventListener("click", prevMusic);
+next.addEventListener('click', nextMusic);
+prev.addEventListener('click', prevMusic);
 
 //Длительность и ренджи
 const playMusicRange = (event) => {
@@ -149,24 +149,24 @@ const changeTimeMusic = (currentTime) => {
   const minutes = Math.floor(currentTime / 60);
   const seconds = Math.floor(currentTime % 60);
 
-  playDuration.textContent = `${"0" + minutes}:${
-    seconds < 10 ? "0" + seconds : seconds
+  playDuration.textContent = `${'0' + minutes}:${
+    seconds < 10 ? '0' + seconds : seconds
   }`;
   //playDuration.textContent = progress;
 };
 
-audio.addEventListener("timeupdate", playMusicRange);
+audio.addEventListener('timeupdate', playMusicRange);
 
 const toggleBorder = () => {
-  if (imageWrapper.classList.contains("active")) {
-    imageWrapper.classList.remove("active");
+  if (imageWrapper.classList.contains('active')) {
+    imageWrapper.classList.remove('active');
     setTimeout(() => {
-      imageWrapper.classList.add("active");
+      imageWrapper.classList.add('active');
     }, 0.5);
   }
 };
 
-audio.addEventListener("ended", nextMusic);
+audio.addEventListener('ended', nextMusic);
 
 //sound Change
 
@@ -179,7 +179,6 @@ const soundChange = (event) => {
   }
 
   let change = event.target.value;
-  console.log(change);
   volumeBtn.style.background = `linear-gradient(to right, #d17878 ${change}%, #ffffff 20%, #fff 50%, #fff 100%)`;
   audio.volume = music;
 };
@@ -189,27 +188,27 @@ const rangeSound = () => {
   audio.currentTime = result;
 };
 
-soundDuration.addEventListener("change", soundChange);
-playRange.addEventListener("change", rangeSound);
+soundDuration.addEventListener('change', soundChange);
+playRange.addEventListener('change', rangeSound);
 
 const soundStateActive = (event) => {
-  if (!soundActiveBtn.classList.contains("active")) {
-    soundActiveBtn.classList.add("active");
+  if (!soundActiveBtn.classList.contains('active')) {
+    soundActiveBtn.classList.add('active');
     audio.volume = 0;
     soundDuration.value = 0;
     volumeBtn.style.background = `linear-gradient(to right, #d17878 0%, #ffffff 20%, #fff 50%, #fff 100%)`;
     soundActiveBtn.src = `./assets/img/sound/icon-mute.png`;
   } else {
-    soundActiveBtn.classList.remove("active");
+    soundActiveBtn.classList.remove('active');
     soundActiveBtn.src = `./assets/img/sound/icon-active.png`;
   }
 };
 
-soundActiveBtn.addEventListener("click", soundStateActive);
+soundActiveBtn.addEventListener('click', soundStateActive);
 
 const getClickedSong = (event) => {
   rerenderActiveList();
-  event.target.classList.add("item-active");
+  event.target.classList.add('item-active');
   let index = Array.from(playListSelector.childNodes).indexOf(event.target);
   stateSound = index;
   playAudioBtn();
@@ -220,5 +219,5 @@ const getClickedSong = (event) => {
 };
 
 playListSelector.childNodes.forEach((el) =>
-  el.addEventListener("click", getClickedSong)
+  el.addEventListener('click', getClickedSong)
 );

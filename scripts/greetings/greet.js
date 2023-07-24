@@ -1,6 +1,6 @@
-const greetContainer = document.querySelector(".greeting-container");
-const greetingSelector = greetContainer.querySelector(".greeting");
-const inputName = greetContainer.querySelector(".name");
+const greetContainer = document.querySelector('.greeting-container');
+const greetingSelector = greetContainer.querySelector('.greeting');
+const inputName = greetContainer.querySelector('.name');
 
 const dateObj = () => {
   return new Date();
@@ -8,37 +8,37 @@ const dateObj = () => {
 
 export const filter = () => {
   const getDate = dateObj();
-  const time = getDate.getHours() + "." + getDate.getMinutes();
+  const time = getDate.getHours() + '.' + getDate.getMinutes();
 
   if (time >= 6.0 && time <= 11.59) {
-    return "Good morning";
+    return 'Good morning';
   } else if (time >= 12.0 && time <= 17.59) {
-    return "Good afternoon";
+    return 'Good afternoon';
   } else if (time >= 18.0 && time <= 23.59) {
-    return "Good evening";
+    return 'Good evening';
   } else if (time >= 0.0 && time <= 5.59) {
-    return "Good night";
+    return 'Good night';
   }
 };
 
 const filterRus = () => {
   const getDate = dateObj();
-  const time = getDate.getHours() + "." + getDate.getMinutes();
+  const time = getDate.getHours() + '.' + getDate.getMinutes();
 
   if (time >= 6.0 && time <= 11.59) {
-    return "Доброе утро";
+    return 'Добрий ранок';
   } else if (time >= 12.0 && time <= 17.59) {
-    return "Добрый день";
+    return 'Добрий день';
   } else if (time >= 18.0 && time <= 23.59) {
-    return "Добрый вечер";
+    return 'Добрий вечір';
   } else if (time >= 0.0 && time <= 5.59) {
-    return "Спокойной ночи";
+    return 'Спокійної ночі';
   }
 };
 
 export const greeting = (lang) => {
   let getGreeting;
-  if (lang == "en") {
+  if (lang == 'en') {
     getGreeting = filter();
   } else {
     getGreeting = filterRus();
@@ -50,15 +50,15 @@ export const greeting = (lang) => {
 
 const setLocalStorage = () => {
   const name = inputName.value;
-  localStorage.setItem("name", `${name}`);
+  localStorage.setItem('name', `${name}`);
 };
 
 const getLocalStorage = () => {
-  if (localStorage.getItem("name")) {
-    const getName = localStorage.getItem("name");
+  if (localStorage.getItem('name')) {
+    const getName = localStorage.getItem('name');
     inputName.value = `${getName}`;
   }
 };
 
-window.addEventListener("beforeunload", setLocalStorage);
-window.addEventListener("load", getLocalStorage);
+window.addEventListener('beforeunload', setLocalStorage);
+window.addEventListener('load', getLocalStorage);

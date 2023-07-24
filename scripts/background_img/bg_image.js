@@ -1,9 +1,9 @@
-import { filter } from "../greetings/greet.js";
+import { filter } from '../greetings/greet.js';
 
-const body = document.querySelector("body");
+const body = document.querySelector('body');
 
-const slidePrev = document.querySelector(".slide-prev");
-const slideNext = document.querySelector(".slide-next");
+const slidePrev = document.querySelector('.slide-prev');
+const slideNext = document.querySelector('.slide-next');
 
 let globalBackgroundValue;
 
@@ -62,8 +62,8 @@ const getSlidePrev = () => {
   createBg(getDay, globalBackgroundValue);
 };
 
-slideNext.addEventListener("click", getSlideNext);
+slideNext.addEventListener('click', getSlideNext);
 
-slidePrev.addEventListener("click", getSlidePrev);
+slidePrev.addEventListener('click', getSlidePrev);
 
 export default changeBg;
