@@ -133,7 +133,7 @@ const prevMusic = () => {
 next.addEventListener('click', nextMusic);
 prev.addEventListener('click', prevMusic);
 
-//Длительность и ренджи
+//Duration and range
 const playMusicRange = (event) => {
   const { currentTime, duration } = event.srcElement;
   changeTimeMusic(currentTime, duration);

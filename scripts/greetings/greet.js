@@ -2,41 +2,27 @@ const greetContainer = document.querySelector('.greeting-container');
 const greetingSelector = greetContainer.querySelector('.greeting');
 const inputName = greetContainer.querySelector('.name');
 
+const en = {
+  morning: 'Good morning',
+  afternoon: 'Good afternoon',
+  evening: 'Good evening',
+  night: 'Good night',
+};
+
+const ua = {
+  morning: 'Добрий ранок',
+  afternoon: 'Добрий день',
+  evening: 'Добрий вечір',
+  night: 'Спокійної ночі',
+};
+
 const dateTimeLanguage = (lang) => {
-  if (lang === 'en') {
-    return {
-      morning: 'Good morning',
-      afternoon: 'Good afternoon',
-      evening: 'Good evening',
-      night: 'Good night',
-    };
-  }
-  if (lang === 'ua') {
-    return {
-      morning: 'Добрий ранок',
-      afternoon: 'Добрий день',
-      evening: 'Добрий вечір',
-      night: 'Спокійної ночі',
-    };
-  }
+  if (lang === 'en') return en;
+
+  if (lang === 'ua') return ua;
 };
 
-export const filter = () => {
-  const getDate = new Date();
-  const time = getDate.getHours() + '.' + getDate.getMinutes();
-
-  if (time >= 6.0 && time <= 11.59) {
-    return 'Good morning';
-  } else if (time >= 12.0 && time <= 17.59) {
-    return 'Good afternoon';
-  } else if (time >= 18.0 && time <= 23.59) {
-    return 'Good evening';
-  } else if (time >= 0.0 && time <= 5.59) {
-    return 'Good night';
-  }
-};
-
-export const filterDayTime = (lang) => {
+export const filterDayTime = (lang = { ...en }) => {
   const getDate = new Date();
   const time = getDate.getHours() + '.' + getDate.getMinutes();
 
