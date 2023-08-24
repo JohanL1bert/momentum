@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Arial-MT';
-  src: url('../assets/fonts/Arial-MT.woff'); /* Путь к файлу со шрифтом */
+  src: url('../assets/fonts/Arial-MT.woff');
 }
 
 * {
@@ -357,7 +357,7 @@ body {
   visibility: visible;
 }
 
-/* Кнопка Настройок*/
+/* Btn Settings*/
 .settings {
   width: 100%;
 }
@@ -395,7 +395,7 @@ body {
   height: 40px;
 }
 
-/* Модальное окно */
+/* Modal window */
 .popup {
   margin-top: 20px;
   display: flex;
@@ -526,7 +526,7 @@ body {
   justify-content: space-between;
 }
 
-/* хайд  */
+/* hide */
 .player-settings.active {
   visibility: visible;
 }
