@@ -38,7 +38,7 @@ const createBg = (timeDay, number) => {
   };
 };
 
-//Рандомный бэкграунд
+//Random bg
 
 const getSlideNext = () => {
   globalBackgroundValue++;

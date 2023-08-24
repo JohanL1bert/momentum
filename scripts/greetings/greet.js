@@ -21,7 +21,7 @@ export const filter = () => {
   }
 };
 
-const filterRus = () => {
+const filterUa = () => {
   const getDate = dateObj();
   const time = getDate.getHours() + '.' + getDate.getMinutes();
 
@@ -41,7 +41,7 @@ export const greeting = (lang) => {
   if (lang == 'en') {
     getGreeting = filter();
   } else {
-    getGreeting = filterRus();
+    getGreeting = filterUa();
   }
 
   greetingSelector.innerHTML = getGreeting;

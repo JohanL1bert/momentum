@@ -83,7 +83,7 @@ const createElement = () => {
 };
 
 createElement();
-//TODO: создаем спаны и длителньость
+//TODO: create span and duration
 
 const changeSrcImg = () => {
   imageWrapper.src = playList[stateSound].img;
