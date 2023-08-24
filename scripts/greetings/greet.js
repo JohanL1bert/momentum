@@ -2,12 +2,27 @@ const greetContainer = document.querySelector('.greeting-container');
 const greetingSelector = greetContainer.querySelector('.greeting');
 const inputName = greetContainer.querySelector('.name');
 
-const dateObj = () => {
-  return new Date();
+const dateTimeLanguage = (lang) => {
+  if (lang === 'en') {
+    return {
+      morning: 'Good morning',
+      afternoon: 'Good afternoon',
+      evening: 'Good evening',
+      night: 'Good night',
+    };
+  }
+  if (lang === 'ua') {
+    return {
+      morning: 'Добрий ранок',
+      afternoon: 'Добрий день',
+      evening: 'Добрий вечір',
+      night: 'Спокійної ночі',
+    };
+  }
 };
 
 export const filter = () => {
-  const getDate = dateObj();
+  const getDate = new Date();
   const time = getDate.getHours() + '.' + getDate.getMinutes();
 
   if (time >= 6.0 && time <= 11.59) {
@@ -21,28 +36,24 @@ export const filter = () => {
   }
 };
 
-const filterUa = () => {
-  const getDate = dateObj();
+export const filterDayTime = (lang) => {
+  const getDate = new Date();
   const time = getDate.getHours() + '.' + getDate.getMinutes();
 
   if (time >= 6.0 && time <= 11.59) {
-    return 'Добрий ранок';
+    return lang.morning;
   } else if (time >= 12.0 && time <= 17.59) {
-    return 'Добрий день';
+    return lang.afternoon;
   } else if (time >= 18.0 && time <= 23.59) {
-    return 'Добрий вечір';
+    return lang.evening;
   } else if (time >= 0.0 && time <= 5.59) {
-    return 'Спокійної ночі';
+    return lang.night;
   }
 };
 
 export const greeting = (lang) => {
-  let getGreeting;
-  if (lang == 'en') {
-    getGreeting = filter();
-  } else {
-    getGreeting = filterUa();
-  }
+  const objDateTime = dateTimeLanguage(lang);
+  const getGreeting = filterDayTime(objDateTime);
 
   greetingSelector.innerHTML = getGreeting;
   return getGreeting;
