@@ -16,11 +16,13 @@ import { getLinkUnsplash, getLinkFlicker } from './background_img/api_bg.js';
 
 //Language
 let language;
+let checkBox;
 document.addEventListener('DOMContentLoaded', () => {
-  let getLanguage = toggleLanguage();
-  language = getLanguage;
+  language = toggleLanguage();
   toggleSettingLanguage(language);
   getJsonData(language);
+  changeBg();
+  checkBox = checkBtn();
 });
 
 //Render first Time
@@ -33,8 +35,7 @@ quoteBtn.addEventListener('click', (event) => {
 });
 
 languageChoice.addEventListener('click', () => {
-  let getLanguage = toggleLanguage();
-  language = getLanguage;
+  language = toggleLanguage();
   //Weather
   getWeather(language);
   //Change language
@@ -62,8 +63,6 @@ closeBtn.addEventListener('click', checkCloseBtn);
 
 //Change API
 //
-changeBg();
-let checkBox = checkBtn();
 
 const checker = () => {
   let result = checkBtn();

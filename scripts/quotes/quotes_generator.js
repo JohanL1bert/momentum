@@ -4,7 +4,7 @@ export const quoteBtn = footerSection.querySelector('button');
 const quote = footerSection.querySelector('.quote');
 const author = footerSection.querySelector('.author');
 
-//FIXME: Переписать под API
+//FIXME: rewrite to API
 export const getJsonData = async (lang) => {
   try {
     const getLang = lang;

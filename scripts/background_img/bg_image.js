@@ -1,4 +1,4 @@
-import { filter } from '../greetings/greet.js';
+import { filterDayTime } from '../greetings/greet.js';
 
 const body = document.querySelector('body');
 
@@ -7,8 +7,8 @@ const slideNext = document.querySelector('.slide-next');
 
 let globalBackgroundValue;
 
-const filterDay = () => {
-  const timeDay = filter();
+export const filterDay = () => {
+  const timeDay = filterDayTime();
   const getReg = timeDay.match(/\w+/gi)[1];
   return getReg;
 };
@@ -38,7 +38,7 @@ const createBg = (timeDay, number) => {
   };
 };
 
-//Рандомный бэкграунд
+//Random bg
 
 const getSlideNext = () => {
   globalBackgroundValue++;

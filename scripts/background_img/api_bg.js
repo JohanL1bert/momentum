@@ -1,3 +1,7 @@
+/* import { filterDay as f } from './bg_image';
+
+console.log(f); */
+
 const body = document.querySelector('body');
 
 const filterDay = () => {
@@ -23,6 +27,7 @@ const randomApiBg = (data) => {
 
 export const getLinkUnsplash = async () => {
   let day = filterDay();
+  console.log(day, 'daty');
   const url = `https://api.unsplash.com/photos/random?orientation=landscape&query=${day}&client_id=5q2Lh3IsZ3y1wNM_XI99EFuJFTT16CbbyOn3LyHi2I0`;
   const response = await fetch(url);
   const data = await response.json();
@@ -31,6 +36,7 @@ export const getLinkUnsplash = async () => {
 
 export const getLinkFlicker = async () => {
   let day = filterDay();
+  console.log(day, 'daty');
   const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=8ed457037ce90e5f456803180f60b48d&tags=${day}&extras=url_l&format=json&nojsoncallback=1`;
   const response = await fetch(url);
   const data = await response.json();
