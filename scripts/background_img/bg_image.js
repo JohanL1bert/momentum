@@ -7,7 +7,7 @@ const slideNext = document.querySelector('.slide-next');
 
 let globalBackgroundValue;
 
-const filterDay = () => {
+export const filterDay = () => {
   const timeDay = filterDayTime();
   const getReg = timeDay.match(/\w+/gi)[1];
   return getReg;
