@@ -27,7 +27,6 @@ const randomApiBg = (data) => {
 
 export const getLinkUnsplash = async () => {
   let day = filterDay();
-  console.log(day, 'daty');
   const url = `https://api.unsplash.com/photos/random?orientation=landscape&query=${day}&client_id=5q2Lh3IsZ3y1wNM_XI99EFuJFTT16CbbyOn3LyHi2I0`;
   const response = await fetch(url);
   const data = await response.json();
